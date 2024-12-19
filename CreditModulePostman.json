@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "94038d6d-d936-4e32-acdb-86f6618cff02",
+		"name": "CreditModule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30455219"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "login (Admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login (Customer)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"customer1\",\n    \"password\": \"customer1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Operations",
+			"item": [
+				{
+					"name": "createuser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"customer61\",\n    \"password\": \"customer61\",\n    \"roles\": [\n        \"ROLE_CUSTOMER\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/user/create",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://0.0.0.0:8080/user/list",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CustomerInfo Operations",
+			"item": [
+				{
+					"name": "createCustomer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 14,\n    \"firstName\": \"customer61\",\n    \"lastName\": \"lastnameCust61\",\n    \"creditLimit\": 10000.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/customerInfo/create",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"customerInfo",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listCustomer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://0.0.0.0:8080/customerInfo/list",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"customerInfo",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loan Operations",
+			"item": [
+				{
+					"name": "createLoan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 4,\n    \"amount\": 25000,\n    \"interestRate\": 0.5,\n    \"installmentCount\": 12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/loan/create",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"loan",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listAllLoans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://0.0.0.0:8080/loan/list",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"loan",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUserId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://0.0.0.0:8080/loan/getByUserId?userId=14",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"loan",
+								"getByUserId"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payLoan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 4,\n    \"loanId\": 37,\n    \"amount\": 5000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/loan/payment",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"loan",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "AUTH_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlkIjozLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkRGl2RzFKaC5MZVc2d3ljWlhudXJvdVBOZG5VT2xrNVcvVGRYaXgweW10ZW1naW5aaC5FRUciLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJST0xFX0FETUlOIn1dLCJpYXQiOjE3MzQ2MTYyMTcsImV4cCI6MTczNDcwMjYxN30.BFq1OiFDvIxfqh7SAmfdWZUMSr_PjelA5cX_ODotAuM",
+			"type": "string"
+		}
+	]
+}
